@@ -1,13 +1,16 @@
 # TODX: Train your Own Detector toolboX
 
-## Introduction
+## Introduction <img src="https://github.githubassets.com/images/icons/emoji/unicode/2728.png?v8" alt="fleur_de_lis" width="22" height="22">
+
 TODX is a no-code image classification and object detection framework. It is built on **PyTorch Lightning** a lightweight wrapper for PyTorch.
 
-## System Architecture
+## System Architecture <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f531.png?v8" alt="fleur_de_lis" width="22" height="22">
+
 ![Alt Text](./assets/architecture_diagram.png)
 
 
-## Supported Models
+## Model Zoo <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f52e.png?v8" alt="fleur_de_lis" width="22" height="22">
+
 Out of the box the framework supports the following models.
 
 #### Classification models
@@ -23,7 +26,8 @@ Out of the box the framework supports the following models.
 
 
 
-## Supported Datasets
+## Dataset Zoo <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f52e.png?v8" alt="fleur_de_lis" width="22" height="22">
+
 Out of the box the framework supports the following datasets.
 
 #### Classification Datasets
@@ -36,9 +40,8 @@ Out of the box the framework supports the following datasets.
 | Dataset | Status      |
 |---------|-------------|
 | PASCAL-VOC | in progress, not yet supported |
+## Roadmap <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f9ed.png?v8" alt="fleur_de_lis" width="18" height="18">
 
-
-## Roadmap
 1. Build the image classification pipeline, with support for LeNet and MNIST.
 2. Build the object detection pipeline, with support for YoLo and Pascal-VOC.
 3. Build the monitoring dashboard for training.
@@ -46,7 +49,8 @@ Out of the box the framework supports the following datasets.
 5. Build the inference pipeline for image classification, where the user can upload an image and use a model he/she trained previously to inference on the image.
 6. Build the inference pipeline for object detection, where the user can upload an image and use a model he/she trained previously to inference on the image.
 7. Build a labeller, where users can make custom datasets.
-8. Deploy on cloud (to be determined)
+8. Extend the model and dataset zoo.
+9. Deploy on cloud (to be determined)
 
 ## License
-The use of TODX is limited to <span style="color:red">academic purposes only, and any commercial use is explicitly forbidden.</span>.
+The use of TODX is limited to academic purposes only, and any commercial use is explicitly forbidden.
