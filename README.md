@@ -42,6 +42,7 @@ Out of the box the framework supports the following datasets.
 | PASCAL-VOC | in progress, not yet supported |
 ## Roadmap <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f9ed.png?v8" alt="fleur_de_lis" width="18" height="18">
 
+0. Build the basic skeleton of the kafka messaging service between the dl-backend and the app-backend.
 1. Build the image classification pipeline, with support for LeNet and MNIST.
 2. Build the object detection pipeline, with support for YoLo and Pascal-VOC.
 3. Build the monitoring dashboard for training.

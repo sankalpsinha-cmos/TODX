@@ -1,0 +1,7 @@
+Things to do to reeach Roadmap-0
+
+1: Setup zookeper and kafka as a docker compose service
+2: Decide what topics and partitions are need for the entire app.
+3: Setup the kafka topics and/or partitons via the docker compoase file.
+4: Setup a simple kafka listener in python and a kafka producer in node/javascript.
+5: Produce and Consume messages between the different backends.
