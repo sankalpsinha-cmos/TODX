@@ -1,0 +1,11 @@
+topic_name = "db-handeller-events"
+
+[kafka_consumer]
+bootstrap_servers = "kafka:9092"
+auto_offset_reset = "earliest"
+group_id = "db-handeller"
+enable_auto_commit = true
+
+[kafka_producer]
+topic-name = "handeller-events"
+bootstrap_servers = "kafka:9092"

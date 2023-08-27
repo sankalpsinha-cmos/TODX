@@ -1,9 +1,9 @@
 ## Roadmap <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f9ed.png?v8" alt="fleur_de_lis" width="18" height="18">
 
-0. Build the basic skeleton of the kafka messaging service between the dl-backend, db-handeller and app-backend.
-    1. Create a docker compose with the following services: dl-backend, db-handeller, app-backend, zookeeper and kafka.
+0. Build the basic skeleton of the kafka messaging service between the dl-backend, db-handeller and app-backend. [X]
+    1. Create a docker compose with the following services: dl-backend, db-handeller, app-backend, zookeeper and kafka. [X]
     2. Decide the message schema for the kafka messages.
-    3. Test the messaging service
+    3. Test the messaging service. [X] (Now, working. Tested between db-handeller and todx-dl)
 1. Build the image classification pipeline, with support for LeNet and MNIST.
 2. Build the object detection pipeline, with support for YoLo and Pascal-VOC.
 3. Build the monitoring dashboard for training.

@@ -1,0 +1,102 @@
+version: '3'
+services:
+  # Zookeeper service
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    networks:
+      - kafka_network
+  
+  # Kafka service
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka
+    depends_on:
+      - zookeeper
+    networks:
+      - kafka_network
+    ports:
+      - "29092:29092"
+      - "29093:29093"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: INTERNAL://:9092
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+    
+    healthcheck:
+      test: nc -z localhost 9092 || exit -1
+      start_period: 15s
+      interval: 5s
+      timeout: 10s
+      retries: 10
+  
+  # Kafka-init service: This service makes the kafka-topics needed by all the other services and then stops
+  kafka-init:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka-init
+    depends_on:
+      kafka:
+        condition: service_healthy
+    networks:
+      - kafka_network
+    entrypoint: [ '/bin/sh', '-c' ]
+    command: |
+      "
+      # blocks until kafka is reachable
+      kafka-topics --bootstrap-server kafka:9092 --list
+
+      echo -e 'Creating kafka topics'
+      kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic db-handeller-events --replication-factor 1 --partitions 1
+
+      echo -e 'Successfully created the following topics:'
+      kafka-topics --bootstrap-server kafka:9092 --list
+      "
+  
+  # DB-handelller service
+  db-handeller:
+    build:
+      context: ./db-handeller
+      dockerfile: Dockerfile
+    networks:
+      - kafka_network
+    volumes:
+      - shared_volume:/shared
+    depends_on:
+      - zookeeper
+      - kafka
+      - kafka-init
+  
+  # TODX-DL service
+  todx-dl:
+    build:
+      context: ./todx-dl
+      dockerfile: Dockerfile
+    networks:
+      - kafka_network
+    volumes:
+      - shared_volume:/shared
+    depends_on:
+      - zookeeper
+      - kafka
+      - kafka-init
+
+volumes:
+  shared_volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./shared
+
+networks:
+  kafka_network:
+    name: kafka_docker_network
