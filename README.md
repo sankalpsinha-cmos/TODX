@@ -8,6 +8,14 @@ TODX is a no-code image classification and object detection framework. It is bui
 
 ![Alt Text](./assets/architecture_diagram.png)
 
+## Installation:
+Prerequisite: Docker
+```bash
+git clone https://github.com/sankalpsinha-cmos/TODX.git
+cd TODX
+docker compose up
+```
+
 
 ## Model Zoo <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f52e.png?v8" alt="fleur_de_lis" width="22" height="22">
 
