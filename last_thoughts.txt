@@ -1,7 +1,9 @@
 Things to do to reeach Roadmap-0
-
-1: Setup zookeper and kafka as a docker compose service
-2: Decide what topics and partitions are need for the entire app.
-3: Setup the kafka topics and/or partitons via the docker compoase file.
-4: Setup a simple kafka listener in python and a kafka producer in node/javascript.
-5: Produce and Consume messages between the different backends.
+ 
+ The changes that have not been pushed:
+    - Now we do not have a common_requirements.txt file
+    - The common requirements are copied into each services's requirements.txt file
+    - We need to build a venv inside each service for local pylinting
+    - We need to code the lightining datamodule for MNIST
+    - We need to code the a general transformer
+    - We need to code ViT and make it run on MNIST

@@ -1,0 +1,3 @@
+# ignore the files inside the dataset folder
+shared/dataset/MNIST/*gz
+shared/dataset/MNIST/*zip

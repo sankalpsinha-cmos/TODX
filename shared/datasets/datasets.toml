@@ -1,0 +1,7 @@
+[mnist]
+train_set_images_link = "http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz"
+val_set_images_link = ""
+test_set_images_link = "http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz"
+train_set_labels_link = "http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz"
+val_set_labels_link = ""
+test_set_labels_link = "http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz"
